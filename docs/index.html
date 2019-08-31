@@ -1,1 +1,67 @@
-thi is it!
+<head>
+  <script>
+    rexify = normal => {
+      return normal
+        .toUpperCase()
+        .replace("CHA", "cha")
+        .replace("CHE", "che")
+        .replace("CHI", "chi")
+        .replace("CHO", "cho")
+        .replace("CHU", "chu")
+        .replace("Y", "ll")
+        .replace("B", "v")
+        .replace("V", "b")
+        .replace(" A", " ha")
+        .replace(" E", " he")
+        .replace(" I", " hi")
+        .replace(" O", " ho")
+        .replace(" U", " hu")
+        .replace("HA", "a")
+        .replace("HE", "e")
+        .replace("HI", "i")
+        .replace("HO", "o")
+        .replace("HU", "u")
+        .replace("SE", "ce")
+        .replace("SI", "ci")
+        .replace("CE", "se")
+        .replace("CI", "si")
+        .toUpperCase();
+    };
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#doit").click(function() {
+        console.log(rexify($("#ingreso").text()));
+        $("#resultado").text(rexify($("#ingreso").text()));
+      });
+    });
+    $(document).ready(function() {
+      $("#copy").click(function() {
+        var copyText = document.getElementById("resultado");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Rexify</h1>
+  <div style="width: 100%">
+    <div class="input-text" style="margin: 10px;">
+      <textarea rows="20" cols="40" id="ingreso">
+Proba con cualquier texto!
+      </textarea>
+      <button id="doit">DO IT!</button>
+    </div>
+    <div class="result-text" style="margin: 10px;">
+      <textarea rows="20" cols="40" id="resultado"></textarea>
+      <button id="copy">Copiar pa' llevar</button>
+    </div>
+  </div>
+</body>
