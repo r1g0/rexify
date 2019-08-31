@@ -30,6 +30,8 @@
         .replace("CU", "ku")
         .replace("QU", "K")
         .replace("EX", "es")
+        .replace("JU", "gu")
+        .replace("GUI", "gui")
         .toUpperCase();
     };
   </script>
@@ -75,8 +77,11 @@
       });
     });
     function SelectAll(id) {
-      document.getElementById(id).focus();
-      document.getElementById(id).select();
+      element = document.getElementById(id);
+      if (!element.isfocus()) {
+        element.focus();
+        element.select();
+      }
     }
   </script>
   <meta
@@ -120,7 +125,7 @@ Proba con cualquier texto!</textarea
         id="copy"
         style="width: 100%;"
       >
-        Copiar pa' llevar
+        KOPIAR PA' YEBAR
       </button>
     </div>
   </div>
